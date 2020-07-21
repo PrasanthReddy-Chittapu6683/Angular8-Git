@@ -1,0 +1,42 @@
+<ul>
+    <li>
+        <div> {{"one-component "+text }}!</div>
+
+    </li>
+    <li>
+        <div> {{"Displaying in Upper Case:  "+text.toUpperCase() }}!</div>
+
+    </li>
+    <li>
+        <div> {{"Displaying in method function 'dispalyText()':  "+dispalyText() }}!</div>
+
+    </li>
+    <li>
+        <span>
+            Asing the attribute binding [id]
+        </span>
+        <input type="text" [id]="id" value="Prasanth">
+    </li>
+    <li>
+        <span>
+            Attribute binding {{id}} using curlly braces
+        </span>
+        <input type="text" id="{{id}}" value="Prasanth">
+    </li>
+    <li>
+        <span>
+            Disable Property for textbox
+        </span>
+        <input type="text" value="{{id}}" [disabled]="isDisabled" />
+        <span>
+            Disable Property for textbox on Button click
+        </span>
+        <button type="button" (click)="disbaledCheckbox()">Enable / Disbale - {{isDisabled}}</button>
+    </li>
+    <li>
+        <span [class]="successClass"> Class Binding</span>
+        <br>
+        <span [class.success]="isDisabled"> using Class.success  </span>
+
+    </li>
+</ul>

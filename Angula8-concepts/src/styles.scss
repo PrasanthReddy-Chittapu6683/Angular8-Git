@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.div-boder{
+    border: 1px solid gray;
+    width: auto;
+    margin :5px;
+    padding: 5px;
+}
+.div-boder p{
+    font-size: 20px;
+    text-decoration: dashed;
+    font-style: italic;
+    font-weight: bolder;
+}
+.div-boder ul li{
+    padding: 5px;
+}
+.success{
+color:  green;
+font-size: 15px;
+}

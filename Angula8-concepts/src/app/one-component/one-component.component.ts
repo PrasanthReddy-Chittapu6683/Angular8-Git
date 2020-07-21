@@ -11,6 +11,7 @@ export class OneComponentComponent implements OnInit {
   private id: string;
   private successClass: string;
   private isDisabled: boolean;
+  private isDisableds: boolean;
   constructor() { }
 
   ngOnInit() {

@@ -1,20 +1,65 @@
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-alpine {
+    @include ag-theme-alpine();
+}
 /* You can add global styles to this file, and also import other style files */
-.div-boder{
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+/* You can add global styles to this file, and also import other style files */
+.div-boder {
     border: 1px solid gray;
     width: auto;
-    margin :5px;
+    margin: 5px;
     padding: 5px;
 }
-.div-boder p{
+.div-boder p {
     font-size: 20px;
     text-decoration: dashed;
     font-style: italic;
     font-weight: bolder;
 }
-.div-boder ul li{
+.div-boder ul li {
     padding: 5px;
 }
-.success{
-color:  green;
-font-size: 15px;
+.success {
+    color: green;
+    font-size: 15px;
+}
+.error {
+    color: red;
+    font-size: 15px;
+}
+nav a {
+    margin: 5px;
+    border: 1px solid gray;
+    padding: 2px;
+    background-color: #eceaea;
+}
+nav a.active {
+    color: #039be5 !important;
+}
+nav a:hover {
+    color: #039be5;
+    background-color: #cfd8dc;
+}
+nav a:visited,
+a:link {
+    color: #607d8b;
+}
+.liNotSelected {
+    border: 1px solid #73d45a;
+    width: 200px;
+    border-radius: 10px;
+    background: #ccf57b;
+    margin: 10px;
+}
+
+.liSelected {
+    border: 1px solid gray;
+    width: 200px;
+    border-radius: 10px;
+    background: gray;
+    margin: 10px;
 }

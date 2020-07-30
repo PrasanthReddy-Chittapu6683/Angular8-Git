@@ -1,19 +1,84 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced. -->
 <div style="text-align:left">
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <nav>
+    <a routerLink="/basicBindings" routerLinkActive="active">Basic Bindings</a>
+    <a routerLink="/structuralDirectives">Structural Directives</a>
+    <a routerLink="/componentInteraction">Component Interaction</a>
+    <a routerLink="/pipes">Pipes</a>
+    <a routerLink="/angularServices">Angular Services</a>
+    <a routerLink="/httpobservables">Http Observables</a>
+    <a routerLink="/routingParams">Routing Params</a>
+
+  </nav>
   <div class="div-boder">
+    <!-- <app-grid-functionality></app-grid-functionality>
+
+  <div class="div-boder">
+    <div class="app-one-component">
+      using Div tag class="app-one-component" in app.component.html file.
+    </div>
     <p> Rendering the basic component in App Module</p>
     <app-one-component></app-one-component>
-    <br>
-    
-    <div class="app-one-component">
-      using Div tag class="app-one-component"
+  </div>
+  <br>
+  <div class="div-boder">
+    <div class="app-structural-directives">
+      <p> Using Structural Directives:</p>
+      <ul>
+        <li>
+          ngIf
+        </li>
+        <li>
+          ngFor
+        </li>
+        <li>
+          ngSwitch
+        </li>
+      </ul>
+      <app-structural-directives></app-structural-directives>
+
     </div>
   </div>
- 
+  <br>
+  <div class="div-boder">
+    <div class="">
+      <p> Component Interaction using @Input and @Output:</p>
+
+      <app-parent-component></app-parent-component>
+
+    </div>
+  </div>
+  <br>
+  <div class="div-boder">
+    <div class="">
+      <p> PIPE Operators:</p>
+
+      <app-pipes-component></app-pipes-component>
+
+    </div>
+  </div>
+  <br>
+  <div class="div-boder">
+    <div class="">
+      <p> Angular Services</p>
+
+      <app-employee-list></app-employee-list>
+
+    </div>
+  </div><br>
+  <div class="div-boder">
+    <div class="">
+      <p> Angular HTTP Observal</p>
+
+      <app-http-calls></app-http-calls>
+
+    </div>
+  </div><br> -->
+
+
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-
-<router-outlet></router-outlet>

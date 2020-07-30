@@ -1,0 +1,6 @@
+<p>grid-Server side pagination & Sorting!</p>
+<ag-grid-angular [gridOptions]="gridOptions" style="width: 100%; height: 350px;" (gridReady)="onGridReady($event)"
+    class="ag-theme-balham" [columnDefs]="columnDefs" [cacheOverflowSize]="cacheOverflowSize"
+    [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+    [infiniteInitialRowCount]="infiniteInitialRowCount" [pagination]=true>
+</ag-grid-angular>

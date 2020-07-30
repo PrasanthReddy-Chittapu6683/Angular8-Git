@@ -1,0 +1,75 @@
+<h1>using *ngIf:</h1>
+<ul>
+    <li>
+        <p>Using *ngif </p>
+        <span *ngIf="ngifFlag">
+            Hi Prasanthssss
+        </span>
+
+        <button type="button" (click)="ngIfclick()">*ngIf click</button>
+    </li>
+    <li>
+        <p> ng if esle using ng-tempalte </p>
+        <span *ngIf="ngifFlag; else elseBolck">
+            Here we using if and else statement in *ngIf directive<br>
+        </span>
+        <div *ngIf="ngifFlag; then ifBlock ; else elseBolck"></div>
+        <ng-template #ifBlock>
+            Here we using if(then) else using template reference varibale.<br>
+        </ng-template>
+
+        <ng-template #elseBolck>
+            <span>
+                Name is hiding
+            </span>
+        </ng-template>
+        <button type="button" (click)="ngIfclick()">*ngIf click</button>
+    </li>
+    <li>
+        <p>ngSwith Directive:- {{color}}</p>
+        <button type="button" (click)="ngswtichClick('red')">red</button>
+        <button type="button" (click)="ngswtichClick('green')">green</button>
+        <button type="button" (click)="ngswtichClick('yellow')">yellow</button>
+        <button type="button" (click)="ngswtichClick()">Default</button>
+
+        <div [ngSwitch]="color">
+            <div *ngSwitchCase="'red'"> you picked red color</div>
+            <div *ngSwitchCase="'green'"> you picked green color</div>
+            <div *ngSwitchCase="'yellow'"> you picked yellow color</div>
+            <div *ngSwitchDefault> you picked Nothing color</div>
+        </div>
+    </li>
+    <li>
+        <p>ngFor Directive</p>
+        <span>Using Index in ngFor</span>
+        <div *ngFor="let item of colors; index as i">
+            <span>
+                > {{i}}-{{item}}
+            </span>
+        </div>
+        <span>Using first in ngFor(It gives 1st element of array as true) </span>
+        <div *ngFor="let item of colors; first as f">
+            <span>
+                > {{f}}-{{item}}
+            </span>
+        </div>
+        <span>Using last in ngFor(It gives last element of array as true) </span>
+        <div *ngFor="let item of colors; last as l">
+            <span>
+                > {{l}}-{{item}}
+            </span>
+        </div>
+        <span>Using odd in ngFor(It gives odd element of array as true) </span>
+        <div *ngFor="let item of colors; odd as o">
+            <span>
+                > {{o}}-{{item}}
+            </span>
+        </div>
+        <span>Using even in ngFor(It gives even element of array as true) </span>
+        <div *ngFor="let item of colors; even as e">
+            <span>
+                > {{e}}-{{item}}
+            </span>
+        </div>
+    </li>
+</ul>

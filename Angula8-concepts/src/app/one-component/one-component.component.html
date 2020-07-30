@@ -36,7 +36,23 @@
     <li>
         <span [class]="successClass"> Class Binding</span>
         <br>
-        <span [class.success]="isDisabled"> using Class.success  </span>
+        <span [class.success]="isDisabled"> using Class.success </span>
+        <br>
+        <span [class]="isDisabled? successClass: errorClass "> using Class ? : </span>
 
+    </li>
+    <li>
+        <span> Template referce variables</span>
+        <input type="text" #myInput />
+        <button type="button" (click)="logMessage(myInput.value)"> LOG</button>
+        {{tempalteRefVariable}}
+    </li>
+    <li>
+        <span>Two Way binding: using [(ngModel)]</span><br />
+        <span>
+            <input type="text" [(ngModel)]="name" />
+            {{name}}
+
+        </span>
     </li>
 </ul>

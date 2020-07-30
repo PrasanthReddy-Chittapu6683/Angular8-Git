@@ -10,8 +10,11 @@ export class OneComponentComponent implements OnInit {
   private text: string;
   private id: string;
   private successClass: string;
+  private errorClass: string;
   private isDisabled: boolean;
   private isDisableds: boolean;
+  private tempalteRefVariable: string;
+  public name = "Prasanth";
   constructor() { }
 
   ngOnInit() {
@@ -19,6 +22,7 @@ export class OneComponentComponent implements OnInit {
     this.id = "myID"
     this.isDisabled = true;
     this.successClass = "success"
+    this.errorClass = "error";
   }
 
   dispalyText = () => {
@@ -26,5 +30,8 @@ export class OneComponentComponent implements OnInit {
   }
   disbaledCheckbox = () => {
     this.isDisabled = !this.isDisabled;
+  }
+  logMessage = (val: string) => {
+    this.tempalteRefVariable = val;
   }
 }

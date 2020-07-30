@@ -1,0 +1,20 @@
+<span> lowercase: {{pipeValue | lowercase}} </span><br>
+<span> uppercase: {{pipeValue | uppercase}} </span><br>
+<span> titlecase: {{pipeValue | titlecase}} </span><br>
+<span> slice From : {{pipeValue | slice:3}} </span><br>
+<span> slice From & To: {{pipeValue | slice:3:6}} </span><br>
+<span> Number (1.2-3): {{5.663 | number:'1.2-3'}} </span><br>
+<span> Number (3.4-5): {{5.663 | number:'3.4-5'}} </span><br>
+<span> Number (3.1-2): {{5.663 | number:'3.1-2'}} </span><br>
+<span> Percent : {{0.25 | percent}} </span><br>
+<span> currency : {{0.25 | currency}} </span><br>
+<span> currency GBP: {{0.25 | currency:'GBP'}} </span><br>
+<span> currency GBP code: {{0.25 | currency:'GBP':'code'}} </span><br>
+<span> currency INR: {{0.25 | currency:'INR'}} </span><br>date
+<span> date: {{dateVal}} </span><br>
+<span> date - short: {{dateVal | date:'short'}} </span><br>
+<span> date - shortDate: {{dateVal | date:'shortDate'}} </span><br>
+<span> date - shortTime: {{dateVal | date:'shortTime'}} </span><br>
+<span> date - medium: {{dateVal | date:'medium'}} </span><br>
+<span> date - long: {{dateVal | date:'long'}} </span><br>
+<!-- <span> date - long: {{date | 'long'}} </span><br> -->

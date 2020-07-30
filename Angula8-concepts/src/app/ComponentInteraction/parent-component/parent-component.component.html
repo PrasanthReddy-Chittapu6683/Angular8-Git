@@ -1,0 +1,12 @@
+<ul>
+    <li>
+        <b>
+            In Parent Component: <br>
+        </b>
+        Sending " {{name}} " from Parent
+        <br>
+        <app-child-component (childEvent)="message = $event" [parentData]="name"></app-child-component>
+        <br>
+        Click above button to receive data from Child to Parent is - {{message}}
+    </li>
+</ul>

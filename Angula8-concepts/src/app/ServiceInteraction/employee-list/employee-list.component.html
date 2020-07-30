@@ -1,0 +1,9 @@
+<p>Employee List</p>
+<ul>
+    <li *ngFor="let item of employees">
+        <a (click)="getEmployeeDetails(item.id)"> Name: {{item.name}} </a>
+    </li>
+</ul>
+<div *ngIf="empID">
+    <app-employee-details [empID]="empID"></app-employee-details>
+</div>

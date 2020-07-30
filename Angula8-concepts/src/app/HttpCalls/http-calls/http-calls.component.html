@@ -1,0 +1,13 @@
+<p>Fetching data using httpClient.get()</p>
+<ul>
+    <li *ngFor="let item of employeesDetails">
+        <span>
+
+            ID: {{item.id}} First Name: {{item.first_name}} Last Name: {{item.last_name}} Email {{item.email}} Gender:
+            {{item.gender}} Company Name: {{item.company}}
+        </span>
+    </li>
+</ul>
+
+<p>Handling Http Errors</p>
+<span style="color:red;"> {{errorMessage}} </span>

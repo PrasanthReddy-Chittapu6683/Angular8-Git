@@ -1,0 +1,912 @@
+<style>
+    table {
+        width: 100%;
+    }
+
+    button {
+        margin: 5px;
+    }
+
+    .mat-fab {
+        width: 100px;
+        height: 100px;
+    }
+
+    .mat-icon.mat-accent {
+        color: #0277bd;
+        font-size: 40px;
+        margin: 7px;
+    }
+
+    .navbar div {
+        float: right;
+        width: 100%;
+    }
+
+    .navbar span {
+        float: right;
+
+    }
+
+    mat-sidenav-container {
+        height: 100px;
+    }
+
+    mat-sidenav,
+    mat-sidenav-content {
+        padding: 15px;
+    }
+
+    mat-sidenav {
+        background-color: lightseagreen;
+        width: 200px;
+    }
+
+    mat-grid-tile {
+        background-color: lightseagreen;
+        height: 50px;
+    }
+
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .example-full-width {
+        width: 100%;
+    }
+</style>
+
+<ul>
+    <li>
+        <p>Buttons!</p>
+        <div>
+
+            <button mat-button color="primary"> mat-button color = primary</button>
+            <button mat-raised-button color="primary">Primary-mat-raised-button color="primary"</button>
+            <button mat-raised-button color="accent">Accent -mat-raised-button </button>
+            <button mat-raised-button color="warn">Warn-mat-raised-button </button>
+            <button mat-raised-button disabled>Disabled</button>
+        </div>
+        <br>
+        <div>
+
+            <button mat-raised-button>Basic- mat-raised-button</button>
+            <button mat-flat-button>mat-flat-button</button>
+            <button mat-stroked-button  color="accent">mat-stroked-button</button>
+
+        </div>
+        <div>
+            <button mat-raised-button color="primary">primary- mat-raised-button</button>
+            <button mat-raised-button color="accent">accent- mat-raised-button</button>
+            <button mat-raised-button color="warn">warn- mat-raised-button</button>
+
+        </div>
+        <br>
+        <div>
+            <p>Icon Buttons</p>
+            <button mat-icon-button>mat-icon-button</button>
+            <button mat-fab>mat-fab</button>
+            <button mat-mini-fab>mat-mini-fab</button>
+
+        </div>
+
+    </li>
+
+    <li>
+        <p>Toogle Buttons</p>
+        <div>
+
+        </div>
+        <mat-button-toggle #mytoogleButton value="raw_swift_msg" (change)="toggelButtonClick($event)"
+            matTooltip="View Message">
+            Check Event - {{toggleModel}}
+        </mat-button-toggle>
+        <mat-button-toggle #mytoogleButton disableRipple disabled value="raw_swift_msg"
+            (change)="toggelButtonClick($event)" matTooltip="View Message">
+            disableRipple Attribute - {{toggleModel}}
+        </mat-button-toggle>
+        <mat-button-toggle #mytoogleButton checked value="raw_swift_msg" (change)="toggelButtonClick($event)"
+            matTooltip="View Message">
+            default checked Attribute - {{mytoogleButton.checked}}
+        </mat-button-toggle>
+        <div>
+            <p>Toogle Buttons</p>
+            <span>Single Select</span>
+            <!-- #toogleGroup="matButtonTogglenGroup" -->
+            <mat-button-toggle-group color="accent" #toogleGroup="matButtonToggleGroup">
+                <mat-button-toggle value="angular">
+                    <mat-icon>format_align_left</mat-icon>
+                    Angular
+                </mat-button-toggle>
+                <mat-button-toggle value="react">
+                    <mat-icon>format_align_center</mat-icon>
+                    ReactJs
+                </mat-button-toggle>
+                <mat-button-toggle value="vue">
+                    <mat-icon>format_align_right</mat-icon>
+                    Vue
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+            Selected Value is: {{toogleGroup.value}}
+            <br>
+            <span>Multi Select</span>
+            <!-- #toogleMultiGroup="matButtonTogglenGroup" -->
+            <mat-button-toggle-group multiple #toogleMultiGroup="matButtonToggleGroup">
+                <mat-button-toggle value="angular">
+                    <mat-icon>format_align_left</mat-icon>Angular
+                </mat-button-toggle>
+                <mat-button-toggle value="react">
+                    <mat-icon>format_align_center</mat-icon>ReactJs
+                </mat-button-toggle>
+                <mat-button-toggle value="vue">
+                    <mat-icon>format_align_right</mat-icon>Vue
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+            Selected Values is: {{toogleMultiGroup.value}}
+        </div>
+        <br>
+        <p>Mat - Icons<span> <a href="https://material.io/resources/icons/?icon=arrow_circle_down&style=baseline"
+                    target="_blank">Ref link:</a> </span></p>
+        <div>
+            <mat-icon color="accent">alarm</mat-icon>
+            <mat-icon color="accent">arrow_circle_down</mat-icon>
+            <mat-icon color="accent">arrow_circle_up</mat-icon>
+            <mat-icon color="accent">cached</mat-icon>
+            <mat-icon color="accent">close_fullscreen</mat-icon>
+            <mat-icon color="accent">search</mat-icon>
+
+        </div>
+
+
+    </li>
+    <li>
+        <p>Menu & Nested Item</p>
+        <div>
+            <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+                <button mat-menu-item [matMenuTriggerFor]="subMenuUI">FrontEnd</button>
+                <button mat-menu-item [matMenuTriggerFor]="subMenuBE">Backend</button>
+            </mat-menu>
+            <button color="warn" mat-flat-button [matMenuTriggerFor]="appMenu">Menu After Above</button>
+        </div>
+
+        <div>
+            <mat-menu #appMenuBA="matMenu" xPosition="before" yPosition="below">
+                <button mat-menu-item [matMenuTriggerFor]="subMenuUI">FrontEnd</button>
+                <button mat-menu-item [matMenuTriggerFor]="subMenuBE">Backend</button>
+            </mat-menu>
+            <button color="warn" mat-flat-button [matMenuTriggerFor]="appMenuBA">Menu Before Below </button>
+        </div>
+
+        <div>
+            <mat-menu #subMenuUI="matMenu">
+                <button mat-menu-item>Angular</button>
+                <button mat-menu-item>ReactJs</button>
+            </mat-menu>
+            <mat-menu #subMenuBE="matMenu">
+                <button mat-menu-item>Python</button>
+                <button mat-menu-item>MS SQL</button>
+            </mat-menu>
+        </div>
+
+        <p>Lazy loading Item : Dynamically display the menu items</p>
+        <div>
+            <mat-menu #lazyMenu="matMenu">
+                <ng-template matMenuContent let-name='name' let-hobby='hobby'>
+                    <button mat-menu-item>Settings</button>
+                    <button mat-menu-item>Hobby is {{hobby}}</button>
+                    <button mat-menu-item>Log Out {{name}}</button>
+
+                </ng-template>
+            </mat-menu>
+            <button color="warn" mat-flat-button [matMenuTriggerData]="{name:'PRCV', hobby:'football'}"
+                [matMenuTriggerFor]="lazyMenu">PRCV </button>
+            <button color="warn" mat-flat-button [matMenuTriggerData]="{name:'SID', hobby:'Learning'}"
+                [matMenuTriggerFor]="lazyMenu">SID
+            </button>
+
+        </div>
+    </li>
+    <li>
+        <p>List</p>
+        <div>
+            <mat-list dense>
+                <mat-list-item> Item1</mat-list-item>
+                <mat-list-item> Item2</mat-list-item>
+                <mat-list-item> Item3</mat-list-item>
+            </mat-list>
+
+            <mat-nav-list>
+                <a mat-list-item htref="#">Item1</a>
+                <a mat-list-item htref="#">Item2</a>
+                <a mat-list-item htref="#">Item3</a>
+            </mat-nav-list>
+        </div>
+        <p>List with Icons</p>
+        <mat-list>
+            <mat-list-item>
+                <mat-icon matListIcon>home</mat-icon>
+                <h3 matLine>Heading1</h3>
+                <b matLine>Line1</b>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <mat-icon matListIcon>folder</mat-icon>
+                <h3 matLine>Heading2</h3>
+                <b matLine>Line2</b>
+            </mat-list-item>
+        </mat-list>
+
+    </li>
+    <li>
+        <p>Grid List</p>
+        <div>
+            <!-- rowHeight="100px" -->
+            <!-- rowHeight="2:1" -->
+            <mat-grid-list cols="2" rowHeight="fit" style="height:200px" gutterSize="10px">
+                <mat-grid-tile>Tile1</mat-grid-tile>
+                <mat-grid-tile>Tile2</mat-grid-tile>
+                <mat-grid-tile>Tile3</mat-grid-tile>
+                <mat-grid-tile>Tile4</mat-grid-tile>
+
+            </mat-grid-list>
+        </div>
+    </li>
+    <li>
+        <p>Expanpasion panels :</p>
+        <div>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Angular </mat-panel-title>
+                    <mat-panel-description> Duration Tme: 6 Hrs </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>This is panel content. Add course Details: </p>
+                <mat-action-row>
+                    <button> Enroll</button>
+                    <button> Cancel</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </div>
+        <p>Accordion Panels</p>
+        <div>
+            <!-- multi="true" To expand both panels at same time -->
+            <!-- hideToggle : Use this to hide the arrow icon on right corner -->
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> Angular </mat-panel-title>
+                        <mat-panel-description> Duration Tme: 6 Hrs </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>This is panel content. Add course Details: </p>
+                    <mat-action-row>
+                        <button> Enroll</button>
+                        <button> Cancel</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> React </mat-panel-title>
+                        <mat-panel-description> Duration Tme: 3 Hrs </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>This is panel content. Add course Details: </p>
+                    <mat-action-row>
+                        <button> Enroll</button>
+                        <button> Cancel</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </li>
+    <li>
+        <p> Cards: </p>
+        <div>
+            <mat-card> Basic Card</mat-card>
+            <mat-card>
+                <mat-card-title>
+                    Card Title
+                </mat-card-title>
+                <mat-card-content>
+                    <i>This is the Card Content</i>
+                </mat-card-content>
+                <mat-card-actions aligh='end'>
+                    <button mat-flat-button> Login</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </li>
+    <li>
+        <p>Tabs</p>
+        <div>
+            <mat-tab-group #tabRef (selectedTabChange)="TabChanges(tabRef.SelectedIndex)">
+                <mat-tab labe="Angular"> Angular Content</mat-tab>
+                <mat-tab labe="React">React Content</mat-tab>
+                <mat-tab labe="Vue">View Content</mat-tab>
+            </mat-tab-group>
+
+            Selected Tab index is: {{tabRef.selectedIndex}}
+        </div>
+    </li>
+    <li>
+        <p> Horizontal Steppers: </p>
+        <mat-horizontal-stepper>
+            <mat-step label="Shipping Address" completed=true>
+                <p>Shipping Address</p>
+            </mat-step>
+            <mat-step label="Shipping details" completed=true optional>
+                <p>Shipping details</p>
+            </mat-step>
+            <mat-step label="Billing Address" completed=true>
+                <p>Billing Address</p>
+                <div>
+                    <button mat-button matStepperPrevious> Back</button>
+                    <button mat-button matStepperNext> Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Place Order" completed=true>
+                <p>Place Order </p>
+            </mat-step>
+        </mat-horizontal-stepper>
+        <p> Vertical Steppers: </p>
+
+        <mat-vertical-stepper>
+            <mat-step label="Shipping Address" completed=true>
+                <p>Shipping Address</p>
+            </mat-step>
+            <mat-step label="Shipping details" completed=true optional>
+                <p>Shipping details</p>
+            </mat-step>
+            <mat-step label="Billing Address" completed=true>
+                <p>Billing Address</p>
+                <div>
+                    <button mat-button matStepperPrevious> Back</button>
+                    <button mat-button matStepperNext> Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Place Order" completed=true>
+                <p>Place Order </p>
+            </mat-step>
+        </mat-vertical-stepper>
+    </li>
+    <li>
+        <p>Basic Input</p>
+        <div>
+            <mat-form-field>
+                <mat-label>Name: </mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <p>Label Floating Input</p>
+        <div>
+            <mat-form-field floatLabel="never">
+                <mat-label>Name: </mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field floatLabel="always">
+                <mat-label>Name: </mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto">
+                <mat-label>Name: </mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <p>Required Filed</p>
+        <div>
+            <mat-form-field floatLabel="auto">
+                <mat-label>Name (Show * for label): </mat-label>
+                <input matInput required>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" hideRequiredMarker>
+                <mat-label>Name (hideRequiredMarker): </mat-label>
+                <input matInput required>
+            </mat-form-field>
+        </div>
+        <p>Hint Label Filed</p>
+        <div>
+            <mat-form-field floatLabel="auto">
+                <mat-label>Name (Show * for label): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+
+        </div>
+        <p>Apperiance </p>
+        <div>
+            <mat-form-field floatLabel="auto" appearance='legacy'>
+                <mat-label>Name (Show appearance='legacy'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='standard'>
+                <mat-label>Name (Show appearance='standard'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='fill'>
+                <mat-label>Name (Show appearance='fill'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='outline'>
+                <mat-label>Name (Show appearance='outline'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+        </div>
+        <p>Color Theame</p>
+        <div>
+            <mat-form-field floatLabel="auto" color='accent'>
+                <mat-label>Name (Show color='accent'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" color='warn'>
+                <mat-label>Name (Show color='warn'): </mat-label>
+                <input matInput required>
+                <mat-hint align='end'> Min 5 Characters</mat-hint>
+            </mat-form-field>
+        </div>
+    </li>
+    <li>
+        <p> Select </p>
+        <div>
+            <mat-form-field>
+                <mat-label>Names </mat-label>
+                <mat-select>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <p>Color Theame</p>
+        <div>
+            <mat-form-field floatLabel="auto" color='accent'>
+                <mat-label>Name (Show color='accent'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" color='warn'>
+                <mat-label>Name (Show color='warn'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+        </div>
+        <p>Apperiance </p>
+        <div>
+            <mat-form-field floatLabel="auto" appearance='legacy'>
+                <mat-label>Names (Show appearance='legacy'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='standard'>
+                <mat-label>Name (Show appearance='standard'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='fill'>
+                <mat-label>Name (Show appearance='fill'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+            <mat-form-field floatLabel="auto" appearance='outline'>
+                <mat-label>Name (Show appearance='outline'): </mat-label>
+                <mat-select required>
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-select>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-form-field>
+        </div>
+        <p>Two way binding</p>
+        <mat-form-field floatLabel="auto" appearance='outline'>
+            <mat-label>Names: </mat-label>
+            <mat-select [(value)]='selectedValue' required>
+                <mat-option>Nothing Selectd</mat-option>
+                <mat-option value="react">ReactJs</mat-option>
+                <mat-option value="angular">Angular</mat-option>
+                <mat-option value="angularM">Angular Material</mat-option>
+                <mat-option value="vue">Vue</mat-option>
+            </mat-select>
+            <mat-hint align='end'> Select any one</mat-hint>
+        </mat-form-field>
+        {{selectedValue}}
+        <p>Grouping options</p>
+        <mat-form-field>
+
+            <mat-label>Names: </mat-label>
+            <mat-select [(value)]='selectedGroupValue' required>
+                <mat-option>Nothing Selectd</mat-option>
+                <mat-optgroup label="Web">
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-optgroup>
+                <mat-optgroup label="DataBase">
+                    <mat-option value="msSql">MS SQL</mat-option>
+                    <mat-option value="mySql">My SQl</mat-option>
+                    <mat-option value="bigData">BigData</mat-option>
+                </mat-optgroup>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-select>
+        </mat-form-field>
+        {{selectedGroupValue}}
+        <p>Multi Select options</p>
+        <mat-form-field>
+
+            <mat-label>Names: </mat-label>
+            <mat-select [(value)]='selectedGroupValue' color='warn' multiple required>
+                <mat-option>Nothing Selectd</mat-option>
+                <mat-optgroup label="Web">
+                    <mat-option value="react">ReactJs</mat-option>
+                    <mat-option value="angular">Angular</mat-option>
+                    <mat-option value="angularM">Angular Material</mat-option>
+                    <mat-option value="vue">Vue</mat-option>
+                </mat-optgroup>
+                <mat-optgroup label="DataBase">
+                    <mat-option value="msSql">MS SQL</mat-option>
+                    <mat-option value="mySql">My SQl</mat-option>
+                    <mat-option value="bigData">BigData</mat-option>
+                </mat-optgroup>
+                <mat-hint align='end'> Select any one</mat-hint>
+            </mat-select>
+        </mat-form-field>
+        {{selectedGroupValue}}
+    </li>
+    <li>
+        <p>Auto Complete</p>
+        <div>
+            <form>
+                <mat-form-field color='warn'>
+                    <input matInput type='text' [formControl]="mycontrol" [matAutocomplete]='auto'>
+                    <mat-autocomplete #auto='matAutocomplete' [displayWith]='displayAutoCompleteValue'>
+                        <mat-option *ngFor="let option of filteredOptions |async" [value]='option'>
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        </div>
+        <p>Auto Complete with MultiSelect</p>
+        <div>
+            <form>
+
+                <mat-form-field class="example-full-width" appearance='outline' color='warn'>
+                    <mat-label>Multi Select: </mat-label>
+                    <input type="text" placeholder="Select Users" aria-label="Select Users" matInput
+                        [matAutocomplete]="auto" [formControl]="userControl">
+                    <mat-hint>Enter text to find users by name</mat-hint>
+                </mat-form-field>
+
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let user of filteredUsers | async" [value]="selectedUsers">
+                        <div (click)="optionClicked($event, user)">
+                            <mat-checkbox [checked]="user.selected" (change)="toggleSelection(user)" color='warn'
+                                (click)="$event.stopPropagation()">
+                                {{ user.firstname }} {{ user.lastname }}
+                            </mat-checkbox>
+                        </div>
+                    </mat-option>
+                </mat-autocomplete>
+
+                <label>Selected Users:</label>
+                <mat-list dense>
+                    <mat-list-item *ngIf="selectedUsers?.length === 0">(None)</mat-list-item>
+                    <mat-list-item *ngFor="let user of selectedUsers">
+                        {{ user.firstname }} {{ user.lastname }}
+                    </mat-list-item>
+                </mat-list>
+
+            </form>
+        </div>
+    </li>
+
+    <li>
+        <p>CheckBOXs</p>
+        <div>
+            <mat-checkbox>
+                Angular - Default position
+            </mat-checkbox>
+            <br>
+            <mat-checkbox labelPosition="before">
+                Angular - labelPosition="before"
+            </mat-checkbox>
+        </div>
+        <p>Radio Buttons</p>
+        <div>
+            <mat-radio-group color='warn'>
+                <mat-radio-button value='angular'>
+                    Angular
+                </mat-radio-button>
+
+                <mat-radio-button value='React'>
+                    React
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </li>
+    <li>
+        <div>
+            <p>Date Picker</p>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepicker">
+                <mat-datepicker-toggle matSuffix [for]='myDatepicker'> </mat-datepicker-toggle>
+                <mat-datepicker #myDatepicker></mat-datepicker>
+            </mat-form-field>
+            <p>Date Picker -detfault Year - Month Format</p>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepickerYearMonth">
+                <mat-datepicker-toggle matSuffix [for]='myDatepickerYearMonth'> </mat-datepicker-toggle>
+                <mat-datepicker #myDatepickerYearMonth startView='year'></mat-datepicker>
+            </mat-form-field>
+            <p>Date Picker -detfault Year Format</p>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepickerYear">
+                <mat-datepicker-toggle matSuffix [for]='myDatepickerYear'> </mat-datepicker-toggle>
+                <mat-datepicker #myDatepickerYear startView='multi-year'></mat-datepicker>
+            </mat-form-field>
+            <p>Min & Max dates</p>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepickerMinMax" [min]='minDate' [max]='maxDate'>
+                <mat-datepicker-toggle matSuffix [for]='myDatepickerMinMax'> </mat-datepicker-toggle>
+                <mat-datepicker #myDatepickerMinMax></mat-datepicker>
+            </mat-form-field>
+            <p>Filter/diable Dates</p>
+            <mat-form-field>
+                <input matInput [matDatepicker]="myDatepickerFilter" [matDatepickerFilter]='dateFilter'>
+                <mat-datepicker-toggle matSuffix [for]='myDatepickerFilter'> </mat-datepicker-toggle>
+                <mat-datepicker #myDatepickerFilter></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </li>
+    <li>
+        <p>ToolTip</p>
+        <button mat-raised-button matTooltip="View Message">Welcome </button>
+        <button mat-raised-button matTooltip="View Message" matTooltipPosition="after">Welcome </button>
+        <button mat-raised-button matTooltip="View Message" matTooltipPosition="after">Welcome </button>
+        <button mat-raised-button matTooltip="View Message" matTooltipPosition="before">Welcome </button>
+        <p>Delay in Showing toolTip</p>
+        <button mat-raised-button matTooltip="View Message" matTooltipPosition="after" matTooltipShowDelay="2000"
+            matTooltipHideDelay="2000">Welcome </button>
+
+    </li>
+    <li>
+        <p>Snakbars / Notifications</p>
+        <div>
+            <button mat-raised-button (click)="openSnackBar('Item deleted','Dismiss')">
+                Show Snack-bar
+            </button>
+            <button mat-raised-button (click)="openSnackBar('Item deleted','Undo')">
+                Delete
+            </button>
+            <p>Custom Template - Snakbars / Notifications</p>
+
+            <button mat-raised-button (click)="openCustomSnackBar()">
+                Open Custom SnackBar
+            </button>
+        </div>
+    </li>
+    <li>
+        <p>Dialog / Popup Boxes</p>
+        <div>
+            <button mat-raised-button (click)="openDialog()">
+                Open Dialog Box
+            </button>
+        </div>
+    </li>
+    <li>
+        <p>
+            Data Tables
+        </p>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="filter" (keyup)="applyDataTableFilter($event.target.value)">
+            </mat-form-field>
+            <mat-table [dataSource]="dataSourceTable" matSort class="mat-elevation-z8">
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> No. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> Weight </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> Symbol </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row (click)='dataTableRowClick(row)' *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </li>
+    <li>
+        <p></p>
+        <div>
+
+        </div>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <li>
+        <p>Badges</p>
+        <div>
+            <span [matBadge]="notifications" matBadgeOverlap="false">Default Bradge</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgePosition="below before">below
+                before</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgePosition="below after">below
+                after</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgePosition="above before">above
+                before</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgePosition="above before">above
+                before</span><br><br>
+            [
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeSize="small">Small</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeSize="medium">Medium</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeSize="large">Large</span><br><br>
+            [
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeColor="primary">primary</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeColor="accent">accent</span><br><br>
+            <span [matBadge]="notifications" matBadgeOverlap="false" matBadgeColor="warn">warn</span><br><br>
+            <button (click)="onClickBadgeIcon()">Click to Hide / Show badge</button>
+            <span [matBadge]="notifications" matBadgeOverlap="false" [matBadgeHidden]="notificationsHide"
+                matBadgeColor="warn">Conditionally Hide the badge using matBadgeHidden</span>
+
+            <br><br>
+
+        </div>
+    </li>
+    <li>
+        <div>
+            <p>
+                Spinners
+            </p>
+            <mat-progress-spinner value="40"></mat-progress-spinner>
+            <mat-spinner color="accent"> Loading ... </mat-spinner>
+            <mat-spinner color="primary"> Loading ... </mat-spinner>
+            <mat-spinner color="warn"> Loading ... </mat-spinner>
+            <button (click)="showHidespinner()">Show Hide Spinner</button>
+            <mat-spinner *ngIf="showSpinner"> Loading ... </mat-spinner>
+        </div>
+    </li>
+    <li>
+        <p>Sliders!</p>
+        <mat-slider min="1" max="100" step="1" value="20"></mat-slider>
+        <br>
+        <p>ToolBars!</p>
+        <mat-toolbar>Angular Material</mat-toolbar>
+        <mat-toolbar color="primary">primary</mat-toolbar>
+        <mat-toolbar color="accent" class="navbar">
+            <div>
+                accent
+            </div>
+            <div>
+                <span>Home</span>
+                <span>About</span>
+                <span>Services</span>
+            </div>
+        </mat-toolbar>
+        <mat-toolbar color="warn">Angular Material</mat-toolbar>
+        <br>
+        <p>Side Nav!</p>
+        <mat-sidenav-container>
+            <mat-sidenav mode="push" [(opened)]="openSideNav">Side Nav</mat-sidenav>
+            <mat-sidenav-content>Main - using mode=push
+                <button (click)="openSideNav = !openSideNav">Toggle Panel</button>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+
+        <mat-sidenav-container>
+            <mat-sidenav mode="side" [(opened)]="openSideNav">Side Nav</mat-sidenav>
+            <mat-sidenav-content>Main - using mode=side
+                <button (click)="openSideNav = !openSideNav">Toggle Panel</button>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+        <span>Using Open and Close button clicks</span>
+        <mat-sidenav-container>
+
+            <mat-sidenav #sidenav mode="side" [(opened)]="openSideNav">Side Nav</mat-sidenav>
+            <mat-sidenav-content>Main - using mode=side
+                <button (click)="openSideNav = !openSideNav">Toggle Panel</button>
+                <button (click)="sidenav.open()">Open Panel</button>
+                <button (click)="sidenav.close()">Close Panel</button>
+                <button (click)="sidenav.toggle()">Toggle Panel</button>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+        <span>Capture Open and Close event clicks - {{navbarLog}}</span>
+        <mat-sidenav-container>
+
+            <mat-sidenav (opened)="log('Opened')" (closed)="log('Closed')" #sidenav mode="side"
+                [(opened)]="openSideNav">Side Nav</mat-sidenav>
+            <mat-sidenav-content>Main - using mode=side
+                <button (click)="openSideNav = !openSideNav">Toggle Panel</button>
+                <button (click)="sidenav.open()">Open Panel</button>
+                <button (click)="sidenav.close()">Close Panel</button>
+                <button (click)="sidenav.toggle()">Toggle Panel</button>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </li>
+    <li>
+        <p>TypoGraphy!</p>
+        <div class="mat-display-4">Display 4</div>
+        <div class="mat-display-3">Display 3</div>
+        <div class="mat-display-2">Display 2</div>
+        <div class="mat-display-1">Display 1</div>
+
+        <div class="mat-headline">mat-headline</div>
+        <div class="mat-title">mat-title for h2</div>
+        <div class="mat-subheading-2">mat-subheading for h3</div>
+        <div class="mat-subheading-1">mat-subheading for h4</div>
+
+        <div class="mat-caption"> This is for caption text</div>
+        <div class="mat-body-1"> This is for body text</div>
+        <div class="mat-body-2"> This is for bold body text </div>
+    </li>
+
+</ul>

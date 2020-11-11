@@ -13,6 +13,11 @@ import { DepartmentsListComponent } from './Routings/departments-list/department
 import { DepartmentsDetailsComponent } from './Routings/departments-details/departments-details.component';
 import { DepartmentsOverviewComponent } from './Routings/departments-overview/departments-overview.component';
 import { DepartmentsContactComponent } from './Routings/departments-contact/departments-contact.component';
+import { TemplateInteractionsComponent } from './template-interactions/template-interactions.component';
+import { ParentInteractionComponent } from './InterComponentInteraction/parent-interaction/parent-interaction.component';
+import { ChildInteractionComponent } from './InterComponentInteraction/child-interaction/child-interaction.component';
+import { BasicViewComponent } from './AngularMaterials/basic-view/basic-view.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/basicBindings', pathMatch: 'full' },//NoPageFoundComponent
@@ -33,6 +38,9 @@ const routes: Routes = [
       { path: 'contact', component: DepartmentsContactComponent }
     ]
   },
+  { path: 'templateInteractions', component: TemplateInteractionsComponent },
+  { path: 'parentInteraction', component: ParentInteractionComponent },
+  { path: 'AgularMaterialBasic', component: BasicViewComponent },
   { path: '**', component: NoPageFoundComponent },//
 ];
 
@@ -52,5 +60,9 @@ export const routingComponents = [
   DepartmentsListComponent,
   DepartmentsDetailsComponent,
   DepartmentsOverviewComponent,
-  DepartmentsContactComponent
+  DepartmentsContactComponent,
+  TemplateInteractionsComponent,
+  ParentInteractionComponent,
+  ChildInteractionComponent,
+  BasicViewComponent
 ]

@@ -1,7 +1,7 @@
 <p>departments-list works!</p>
 <ul>
-    <li [class]="isSelected(department)? selectedClass : notSelectedClass"  
-        (click)="onSelect(department)" *ngFor="let department of departmentList">
+    <li [class]="isSelected(department)? selectedClass : notSelectedClass" (click)="onSelect(department)"
+        *ngFor="let department of departmentList">
         {{department.name}}
     </li>
 </ul>

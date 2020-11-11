@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OneComponentComponent } from './one-component/one-component.component';
@@ -20,32 +20,43 @@ import { HttpCallsComponent } from './HttpCalls/http-calls/http-calls.component'
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { DepartmentsListComponent } from './Routings/departments-list/departments-list.component';
 import { DepartmentsDetailsComponent } from './Routings/departments-details/departments-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { CustomBuildSnackBarTemplateComponent } from './AngularMaterials/basic-view/basic-view.component';
+import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
+
+// import { ParentInteractionComponent } from './InterComponentInteraction/parent-interaction/parent-interaction.component';
+// import { ChildInteractionComponent } from './InterComponentInteraction/child-interaction/child-interaction.component';
+
 // import { DepartmentsOverviewComponent } from './Routings/departments-overview/departments-overview.component';
 // import { DepartmentsContactComponent } from './Routings/departments-contact/departments-contact.component'
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-
     ChildComponentComponent,
     EmployeeDetailsComponent,
     EmployeeListComponent,
     routingComponents,
     NoPageFoundComponent,
     DepartmentsDetailsComponent,
-
+    CustomBuildSnackBarTemplateComponent,
+    DialogueBoxComponent,
 
   ],
+  entryComponents: [CustomBuildSnackBarTemplateComponent, DialogueBoxComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    AgGridModule.withComponents([])
+    ReactiveFormsModule,
+    AngularMaterialModule,
+    AgGridModule.withComponents([]),
+    BrowserAnimationsModule,
+
   ],
-  providers: [EmployeeServiceService, httpInterceptorProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

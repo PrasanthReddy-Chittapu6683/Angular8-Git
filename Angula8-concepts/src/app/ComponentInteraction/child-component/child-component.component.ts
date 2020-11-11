@@ -10,6 +10,27 @@ export class ChildComponentComponent implements OnInit {
   @Output() public childEvent = new EventEmitter();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   constructor() { }
 
   ngOnInit() {
@@ -19,3 +40,8 @@ export class ChildComponentComponent implements OnInit {
   };
 
 }
+
+
+
+
+ 
